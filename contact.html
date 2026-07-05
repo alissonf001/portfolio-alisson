@@ -38,5 +38,35 @@
   <footer>
     <p>2026 Alisson - Todos os direitos reservados</p>
   </footer>
+
+  <!-- JavaScript para validação e interatividade -->
+  <script>
+    // Validação simples do formulário
+    document.querySelector(".form-contato").addEventListener("submit", function(e) {
+      const nome = document.querySelector("input[name='nome']");
+      const email = document.querySelector("input[name='email']");
+      const mensagem = document.querySelector("textarea[name='mensagem']");
+
+      if (!nome.value || !email.value || !mensagem.value) {
+        alert("Por favor, preencha todos os campos!");
+        e.preventDefault();
+      } else if (!email.value.includes("@")) {
+        alert("Por favor, insira um e-mail válido!");
+        e.preventDefault();
+      } else {
+        alert("Mensagem enviada com sucesso!");
+      }
+    });
+
+    // Rolagem suave ao clicar nos links do menu
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if(this.hash !== "") {
+          e.preventDefault();
+          document.querySelector(this.hash).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
